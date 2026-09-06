@@ -1,0 +1,138 @@
+/* ==========================================================================
+   SelfEdge base stylesheet — structure only. All visual identity comes from
+   theme variables (public/css/theme.css, copied from themes/<choice>.css).
+
+   Properties of this file, by design:
+     - consumes ONLY var(--…) for anything visual, with neutral fallbacks so
+       a missing/broken theme still renders a readable page (fail-safe)
+     - zero url(), zero @import, zero fonts fetched, zero external requests
+       -> style-src 'self' stays airtight and nothing phones anywhere
+     - accessibility: visible focus rings, reduced-motion respected,
+       WCAG-minded contrast left to themes (validated separately)
+   ========================================================================== */
+
+/* Neutral fallbacks — used only if the theme failed to load. */
+:root {
+  --bg: #ffffff; --bg-raised: #f5f5f5; --text: #111111; --text-muted: #555555;
+  --accent: #333333; --accent-contrast: #ffffff; --link: #0645ad; --link-hover: #0b0080;
+  --border: #dddddd; --focus: #333333; --ok: #1a7f37; --warn: #9a6700; --danger: #cf222e;
+  --font-body: system-ui, sans-serif; --font-heading: system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace; --radius: 4px; --max-width: 46rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 1.0625rem;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- layout ---- */
+.wrap { width: min(var(--max-width), 100% - 2.5rem); margin-inline: auto; }
+main { flex: 1; padding-block: 2.5rem 4rem; }
+
+/* ---- header / nav ---- */
+header.site {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-raised);
+  padding-block: 1.25rem;
+}
+header.site .name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+header.site .tagline { color: var(--text-muted); font-size: .95rem; margin-top: .15rem; }
+nav.site { margin-top: .85rem; display: flex; flex-wrap: wrap; gap: 1.1rem; }
+nav.site a {
+  color: var(--link); text-decoration: none;
+  font-family: var(--font-heading); font-size: .95rem;
+}
+nav.site a:hover { color: var(--link-hover); text-decoration: underline; }
+nav.site a[aria-current="page"] { color: var(--text); border-bottom: 2px solid var(--accent); }
+
+/* ---- article typography (markdown output renders into this) ---- */
+article h1, article h2, article h3 {
+  font-family: var(--font-heading); line-height: 1.25; margin: 1.6em 0 .5em;
+}
+article h1 { font-size: 1.9rem; margin-top: 0; }
+article h2 { font-size: 1.4rem; }
+article h3 { font-size: 1.15rem; }
+article p, article ul, article ol { margin-block: .8em; }
+article ul, article ol { padding-inline-start: 1.4em; }
+article a { color: var(--link); }
+article a:hover { color: var(--link-hover); }
+article blockquote {
+  border-inline-start: 3px solid var(--accent);
+  padding: .35em 1em; margin-block: 1em; color: var(--text-muted);
+  background: var(--bg-raised); border-radius: var(--radius);
+}
+article code {
+  font-family: var(--font-mono); font-size: .92em;
+  background: var(--bg-raised); border: 1px solid var(--border);
+  padding: .1em .35em; border-radius: var(--radius);
+}
+article pre {
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1em; overflow-x: auto; margin-block: 1em;
+}
+article pre code { background: none; border: none; padding: 0; }
+article img { max-width: 100%; height: auto; border-radius: var(--radius); }
+article hr { border: none; border-top: 1px solid var(--border); margin-block: 2em; }
+article table { border-collapse: collapse; width: 100%; margin-block: 1em; }
+article th, article td { border: 1px solid var(--border); padding: .45em .7em; text-align: left; }
+article th { background: var(--bg-raised); font-family: var(--font-heading); }
+
+/* ---- forms (contact) ---- */
+form.contact { display: grid; gap: .9rem; max-width: 34rem; margin-top: 1.5rem; }
+form.contact label { font-weight: 600; font-size: .95rem; }
+form.contact input, form.contact textarea {
+  width: 100%; padding: .6em .7em;
+  background: var(--bg-raised); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font: inherit;
+}
+form.contact textarea { min-height: 9em; resize: vertical; }
+form.contact button {
+  justify-self: start; padding: .6em 1.4em; cursor: pointer;
+  background: var(--accent); color: var(--accent-contrast);
+  border: none; border-radius: var(--radius);
+  font-family: var(--font-heading); font-weight: 700; font-size: 1rem;
+}
+form.contact button:hover { filter: brightness(1.1); }
+.form-note { color: var(--text-muted); font-size: .9rem; }
+.form-ok { color: var(--ok); }
+.form-err { color: var(--danger); }
+
+/* Honeypot: visually removed, still in the DOM for bots to find and fill.
+   (aria-hidden + tabindex are set on the element itself.) */
+.hp-wrap {
+  position: absolute !important;
+  width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---- footer ---- */
+footer.site {
+  border-top: 1px solid var(--border);
+  padding-block: 1.25rem 2rem;
+  color: var(--text-muted); font-size: .9rem;
+}
+footer.site a { color: var(--link); }
+
+/* ---- focus & motion (accessibility) ---- */
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius); }
+::selection { background: var(--accent); color: var(--accent-contrast); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

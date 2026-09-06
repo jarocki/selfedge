@@ -1,0 +1,32 @@
+{
+  "name": "selfedge",
+  "version": "0.5.0",
+  "description": "A self-hosted, self-defending personal website that runs at the edge. Pre-release.",
+  "type": "module",
+  "bin": {
+    "selfedge": "cli/selfedge.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "init": "node cli/selfedge.mjs init",
+    "doctor": "node cli/selfedge.mjs doctor",
+    "spin": "node cli/selfedge.mjs spin",
+    "console": "node cli/selfedge.mjs console",
+    "test": "node console/test-render.mjs",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "markdown-it": "^15.0.1",
+    "smol-toml": "^1.8.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.129.0"
+  },
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "tag": "next"
+  }
+}

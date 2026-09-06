@@ -1,0 +1,48 @@
+# =============================================================================
+# selfedge.toml — the single source of truth for your SelfEdge site.
+# `selfedge init` fills this in. NOTHING SECRET goes here — secrets are
+# referenced by NAME only and live in your platform's secret store.
+# =============================================================================
+
+[site]
+name        = ""            # "Jane Doe" or "Acme Research"
+tagline     = ""            # one line under your name
+description = ""            # meta description for search engines
+theme       = "console"     # console | paper | terminal | slate
+locale      = "en"
+
+[site.links]
+github   = ""
+linkedin = ""
+email    = ""               # a public contact address (not a secret)
+
+[content]
+pages        = ["index", "about", "contact"]
+contact_path = "/contact"
+
+[deploy]
+account_id = ""             # Cloudflare account ID (not secret — just an ID)
+zone_id    = ""
+domain     = ""
+site_url    = ""
+
+[deploy.secrets]
+# NAMES ONLY. Set values with `selfedge secret set <NAME>`.
+cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
+alert_webhook_url    = "ALERT_WEBHOOK_URL"
+turnstile_secret     = "TURNSTILE_SECRET"
+kv_write_token       = "CF_KV_TOKEN"
+
+[features]
+captcha    = "turnstile"    # none | turnstile | hcaptcha | pow
+alerts     = "discord"      # none | discord | slack | ntfy
+intel_sync = false          # daily CVE/KEV enrichment (pipeline not in 0.5.0 — see README)
+forensics  = true           # encrypted archive of full request records
+
+[forensics]
+public_key_file = "keys/public.jwk.json"
+
+[moving_target]
+enabled = true
+profile = "standard"        # minimal | standard | paranoid
+freeze  = []

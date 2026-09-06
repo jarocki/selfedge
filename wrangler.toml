@@ -1,0 +1,32 @@
+# =============================================================================
+# wrangler.toml — SelfEdge edge Worker. De-identified template.
+# `selfedge init` / `selfedge deploy` fill in the ids; you rarely edit this.
+# =============================================================================
+name = "selfedge-site"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+# Static site (your published public/ directory), served by the Worker.
+assets = { directory = "./public", binding = "ASSETS" }
+
+# Moving-target config, written by `selfedge spin` + pushed on deploy.
+# (id filled in by the wizard; created invisibly.)
+kv_namespaces = [
+  { binding = "TRIPWIRE_KV", id = "" },
+]
+
+# Encrypted forensic archive (Stream B). Bucket stays PRIVATE.
+[[r2_buckets]]
+binding = "FORENSIC_BUCKET"
+bucket_name = ""
+
+# Operational telemetry (Stream A). Low-sensitivity, no IP/raw-UA.
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "selfedge_ops"
+
+[vars]
+# The PUBLIC key (safe to commit). Secrets (ALERT_WEBHOOK_URL, TURNSTILE_SECRET)
+# are set with `selfedge secret set` and never appear here.
+PUBLIC_JWK = ""
+CONTACT_PATH = "/contact"

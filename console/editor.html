@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelfEdge console</title>
+<link rel="stylesheet" href="/assets/editor.css">
+</head>
+<body data-token="__TOKEN__">
+<header>
+  <strong>SelfEdge</strong> console
+  <span id="status" role="status"></span>
+</header>
+<div id="app">
+  <aside>
+    <h2>Pages</h2>
+    <ul id="pages"></ul>
+  </aside>
+  <section id="edit">
+    <div id="toolbar">
+      <button data-md="# ">H1</button>
+      <button data-md="## ">H2</button>
+      <button data-wrap="**">B</button>
+      <button data-wrap="*">I</button>
+      <button data-wrap="`">code</button>
+      <button data-md="- ">list</button>
+      <button data-md="> ">quote</button>
+      <button id="btn-link">link</button>
+      <label>layout
+        <select id="layout"></select>
+      </label>
+      <span class="spacer"></span>
+      <button id="btn-save">Save</button>
+      <button id="btn-publish" class="primary">Publish</button>
+    </div>
+    <textarea id="md" spellcheck="true" aria-label="Markdown editor"></textarea>
+  </section>
+  <section id="previewpane">
+    <h2>Preview <small>(exactly what will publish)</small></h2>
+    <iframe id="preview" sandbox="" title="Page preview"></iframe>
+  </section>
+</div>
+<script src="/assets/editor.js"></script>
+</body>
+</html>

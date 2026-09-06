@@ -1,0 +1,23 @@
+# Dependencies / build
+node_modules/
+dist/
+.wrangler/
+
+# Secrets & keys — NEVER commit
+*.pem
+*.key
+.env
+*.env
+r2.env
+keys/priv*
+
+# Local state & the generated (per-deployment) tripwire config
+.selfedge/
+tripwire.json
+
+# Generated theme (build copies themes/<choice>.css here)
+# public/css/theme.css   # committed as a default so a fresh clone renders
+
+# Cruft
+*.bak
+.DS_Store

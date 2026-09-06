@@ -1,0 +1,21 @@
+/* paper — warm light, serif, reads like a well-set document. */
+:root {
+  --bg: #faf7f0;
+  --bg-raised: #ffffff;
+  --text: #2b2620;
+  --text-muted: #6e675e;
+  --accent: #7c2d12;
+  --accent-contrast: #fdf4ee;
+  --link: #0f4c81;
+  --link-hover: #1d6fb8;
+  --border: #e2dbcf;
+  --focus: #7c2d12;
+  --ok: #166534;
+  --warn: #92400e;
+  --danger: #991b1b;
+  --font-body: Charter, Georgia, "Times New Roman", serif;
+  --font-heading: Charter, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  --radius: 3px;
+  --max-width: 42rem;
+}

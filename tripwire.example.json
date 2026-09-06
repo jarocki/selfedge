@@ -1,0 +1,28 @@
+{
+  "__README__": "GENERATED per-deployment by `selfedge spin`. This example shows the SHAPE only. Your real tripwire.json is unique to YOUR site, is deployed to KV (or bundled into your private deploy), and is NEVER committed to the public template. That is the whole point: reading the SelfEdge source tells an attacker nothing about any specific site's tripwires. Reshuffle anytime with `selfedge spin`.",
+
+  "schema": 1,
+  "shuffle_id": "sf_7c3a1e",
+  "generated": "2026-08-15T00:00:00Z",
+  "profile": "standard",
+
+  "decoy_paths": ["/.env", "/.git/config", "/wp-login.php", "/backup.zip"],
+  "honeypot_field": "website_url",
+  "canary_asset_paths": [],
+
+  "cookie_names": { "session": "sid", "csrf": "csrf" },
+  "csrf": { "pattern": "double-submit", "field": "csrf", "header": "X-CSRF-Token" },
+
+  "headers": {
+    "fixed": [
+      "Content-Security-Policy",
+      "Strict-Transport-Security",
+      "X-Content-Type-Options",
+      "X-Frame-Options"
+    ],
+    "shuffle_order": true,
+    "optional_present": ["Referrer-Policy", "Permissions-Policy", "Cross-Origin-Opener-Policy"]
+  },
+
+  "frozen": []
+}

@@ -1,0 +1,21 @@
+/* terminal — phosphor green on black, full monospace. For the committed. */
+:root {
+  --bg: #000000;
+  --bg-raised: #071007;
+  --text: #4af626;
+  --text-muted: #1f9e46;
+  --accent: #4af626;
+  --accent-contrast: #001a00;
+  --link: #7dff5e;
+  --link-hover: #b3ffa1;
+  --border: #103d10;
+  --focus: #7dff5e;
+  --ok: #4af626;
+  --warn: #ffd000;
+  --danger: #ff5c5c;
+  --font-body: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-heading: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius: 0px;
+  --max-width: 44rem;
+}

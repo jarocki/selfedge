@@ -1,0 +1,13 @@
+# SelfEdge stores secret NAMES (references), never secret VALUES, in config.
+# Allowlist those references so scanners don't false-positive on them.
+title = "SelfEdge gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Secret-name references in config are not secrets"
+paths = ['''selfedge\.toml''', '''.*\.example\..*''']
+regexes = [
+  '''(cloudflare_api_token|alert_webhook_url|turnstile_secret|kv_write_token)\s*=\s*"[A-Z][A-Z0-9_]*"''',
+]
