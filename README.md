@@ -1,15 +1,15 @@
 # SelfEdge
 
-**A self-hosted, self-defending personal website that runs at the edge.**
+**A self-hosted, self-defending website builder that runs at the edge.**
 
-SelfEdge turns a simple personal site into one that is instrumented to notice
-when it's being probed — decoy tripwires, encrypted forensics, moving-target
-defense — while staying easy for a non-expert to stand up. You own the code,
-the keys, and the data end to end. It is *not* a hosted service.
+SelfEdge turns a simple, personal website into one that is instrumented to notice
+when it's being probed (decoy tripwires, encrypted forensics, randomized moving-target
+defenses) while staying easy for a non-expert to stand up. You own the code,
+the keys, and the data end to end.  Host it on a DDoS resistant provider to gain max benefit.
 
-The name is the pre-1900 root of *selvedge*: the self-finished **edge** of woven
-cloth that keeps the fabric from unravelling. Also: **self**-hosted,
-**self**-owned, **self**-defending, on the **edge**.
+The name "SelfEdge" is the original pre-1900s version of *selvedge*: the self-finished
+**edge**  of woven cloth that keeps the fabric from unravelling. Also: **self**-hosted,
+**self**-owned, **self**-defending, and hosted at the **edge**.
 
 ---
 
@@ -22,9 +22,9 @@ below). It has **not been exercised end-to-end against a live Cloudflare
 account**, and several advertised features are stubs.
 
 SelfEdge is defensive telemetry and hardening — **not** an intrusion-prevention
-system, and it **cannot demonstrate the absence of compromise**. A clean report
-means "nothing matched," never "you are safe." See `docs/THREAT-MODEL.md` §1 for
-the full security contract, and `SECURITY.md` for how to report issues.
+system, and it **cannot guarantee the absence of compromise**. A clean report
+means "nothing matched," and not "you are safe." See `docs/THREAT-MODEL.md` §1 for
+the full security model, and `SECURITY.md` for how to report issues.
 
 ### Known security gaps (to be addressed before 1.0.0)
 
