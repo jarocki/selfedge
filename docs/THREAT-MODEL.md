@@ -193,11 +193,28 @@ Residual (needs live Cloudflare to exercise): Turnstile verify call, real KV/R2/
 
 ---
 
-## 8. On publishing security software
+## 8. What this project is — and isn't
 
-Shipping this makes us responsible for others' security. We accept that by:
-committing to safe-by-default configuration, a hard-to-misconfigure setup, a
-coordinated disclosure path (SECURITY.md), a dependency-minimal design, and
-honesty about limits (§1). We will not ship the edge Worker (F4) or `golive`
-(F6) to users until each has had its own adversarial pass. Absence of a review
-is treated as presence of risk.
+SelfEdge is an effort to **help people who choose to secure and monitor their
+own website**. It is a set of tools, defaults, and documentation offered freely
+and in good faith — nothing more. Using it creates no relationship, duty, or
+guarantee between you and the authors.
+
+**The security of any site you build with SelfEdge is entirely your own
+responsibility.** The authors do not run, audit, monitor, or vouch for your
+deployment, and — consistent with the LICENSE — provide the software "as is,"
+with no warranty of any kind and no liability for any outcome of its use. If it
+misses an attack, fails, or is misconfigured, that risk is yours alone. Deploy
+it only if you accept that.
+
+What the authors *try* to do — because it makes the tool genuinely useful, not
+because anything is owed — is choose safe defaults, make the dangerous steps hard
+to get wrong, keep the dependency surface small, provide a private way to report
+issues (`SECURITY.md`), and be honest about limits (§1). These are aspirations,
+not promises, and they create no obligation.
+
+We also hold ourselves to one internal rule — for the quality of the work, not
+as any assurance to you: a component is not offered to users until it has had its
+own adversarial pass, and absence of a review is treated as presence of risk.
+Where that work is unfinished, §6 says so plainly. None of this shifts any
+responsibility for a live site onto the authors; it stays with the operator.
